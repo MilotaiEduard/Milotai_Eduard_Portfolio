@@ -1,0 +1,201 @@
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  background: linear-gradient(180deg, #000000, #0b132b);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 100%;
+  gap: 50px;
+  padding: 0 200px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  text-align: left;
+  height: 100%;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.gif {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.gradientText {
+  position: relative;
+  font-weight: bold;
+  background: linear-gradient(90deg, #1e90ff, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.gradientText::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 150%;
+  background: radial-gradient(
+    circle,
+    rgba(30, 144, 255, 0.3) 0%,
+    rgba(0, 191, 255, 0) 100%
+  );
+  transform: translate(-50%, -50%);
+  filter: blur(20px);
+  animation: glowAnimation 2s infinite alternate;
+}
+
+@keyframes glowAnimation {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.highlight {
+  color: #1e90ff;
+}
+
+.homeButtons {
+  width: 100%;
+}
+
+.cvButton {
+  background: linear-gradient(90deg, #1e90ff, #00bfff);
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  z-index: 1000;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cvButton:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #00bfff, #1e90ff);
+}
+
+.projectsButton {
+  background: transparent;
+  color: #1e90ff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #1e90ff;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  z-index: 1000;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.projectsButton:hover {
+  background-color: rgba(30, 144, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.socials {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.socialButton {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.socialButton:hover {
+  background-color: #1e90ff;
+}
+
+/* Responsivitate */
+@media (max-width: 1024px) {
+  .content {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .button {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .gif {
+    max-width: 300px;
+  }
+
+  .socials {
+    bottom: 10px;
+    gap: 10px;
+  }
+
+  .socialButton {
+    padding: 10px;
+    font-size: 2rem;
+  }
+}

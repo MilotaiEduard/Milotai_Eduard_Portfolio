@@ -1,0 +1,136 @@
+.container {
+  background-color: #060b18;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  color: #1e90ff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 150px;
+  margin-bottom: 50px;
+}
+
+.grid {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 3fr 9fr;
+  gap: 50px;
+}
+
+.sectionLeft {
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.sectionLeft h2 {
+  font-size: 1.8rem;
+}
+
+.sectionLeft h4 {
+  color: #1e90ff;
+  padding-top: 10px;
+  font-size: 1.3rem;
+}
+
+.sectionRight {
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.socialContainer {
+  margin-top: 15px;
+}
+
+.socialButton {
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 1.6rem;
+  margin: 0 5px;
+}
+
+.socialButton:hover {
+  background-color: #1e90ff;
+}
+
+hr {
+  margin: 25px 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.menuButton {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  transition: color 0.3s;
+  margin-top: 15px;
+}
+
+.menuButton:first-child {
+  margin-top: 0;
+}
+
+.menuButton:hover {
+  color: #1e90ff;
+}
+
+.menuButton.active {
+  color: #1e90ff;
+  border-right: 2px solid #1e90ff;
+}
+
+.sectionRight {
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .sectionLeft {
+    max-width: 350px;
+  }
+
+  .grid {
+    grid-template-columns: 12fr;
+  }
+
+  .menu {
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+
+  .menuButton {
+    margin-top: 0;
+  }
+
+  .menuButton.active {
+    border-right: none;
+    border-bottom: 2px solid #1e90ff;
+  }
+}
