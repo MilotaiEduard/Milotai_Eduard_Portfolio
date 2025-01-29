@@ -92,6 +92,9 @@ body {
 
 .homeButtons {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .cvButton {
@@ -118,6 +121,7 @@ body {
   background: transparent;
   color: #1e90ff;
   padding: 10px 20px;
+  margin-top: 10px;
   border-radius: 5px;
   border: 1px solid #1e90ff;
   font-size: 16px;
@@ -158,44 +162,134 @@ body {
   background-color: #1e90ff;
 }
 
-/* Responsivitate */
-@media (max-width: 1024px) {
-  .content {
-    justify-content: center;
-    align-items: center;
-  }
-
+/* Responsive Design */
+@media (max-width: 1920px) {
   .title {
-    font-size: 2.5rem;
-    text-align: center;
+    font-size: 2.8rem;
   }
 
-  .button {
-    margin: 0 auto;
+  .content {
+    grid-template-columns: 1.3fr 1fr;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1440px) {
   .title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .content {
+    grid-template-columns: 1.7fr 1fr;
+    padding: 0 100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 0 125px;
+  }
+
+  .left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2.3rem;
   }
 
   .gif {
     max-width: 300px;
   }
 
-  .socials {
-    bottom: 10px;
-    gap: 10px;
+  .homeButtons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 0 50px;
+  }
+
+  .left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2.1rem;
+  }
+
+  .gif {
+    max-width: 250px;
   }
 
   .socialButton {
+    font-size: 2.2rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 0 25px;
+    gap: 100px;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .gif {
+    max-width: 200px;
+  }
+
+  .cvButton {
+    margin-right: 15px;
+  }
+
+  .cvButton,
+  .projectsButton {
+    font-size: 14px;
     padding: 10px;
-    font-size: 2rem;
+  }
+
+  .socials {
+    gap: 15px;
+  }
+
+  .socialButton {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .cvButton {
+    margin-right: 10px;
+  }
+
+  .cvButton,
+  .projectsButton {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .socialButton {
+    font-size: 1.5rem;
   }
 }
