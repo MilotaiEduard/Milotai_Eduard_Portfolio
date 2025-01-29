@@ -1,0 +1,32 @@
+.navbarLogo,
+.navbarBar {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+  .navbarLogo,
+  .navbarBar {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .navbarLogo,
+  .navbarBar {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbarLogo,
+  .navbarBar {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbarLogo,
+  .navbarBar {
+    font-size: 1.2rem;
+  }
+}

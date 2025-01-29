@@ -7,6 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import styles from "./Navbar.module.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,14 +47,17 @@ function Navbar() {
             style={{
               color: "white",
               textDecoration: "none",
-              fontSize: "1.8rem",
               fontWeight: "bold",
               fontFamily: "'Pacifico', cursive",
             }}
           >
-            <span style={{ color: "#1e90ff" }}>&lt;</span>
-            <span>Eduard Milotai </span>
-            <span style={{ color: "#1e90ff" }}>/&gt;</span>
+            <span style={{ color: "#1e90ff" }} className={styles.navbarBar}>
+              &lt;
+            </span>
+            <span className={styles.navbarLogo}>Eduard Milotai </span>
+            <span style={{ color: "#1e90ff" }} className={styles.navbarBar}>
+              /&gt;
+            </span>
           </Link>
 
           <Box
