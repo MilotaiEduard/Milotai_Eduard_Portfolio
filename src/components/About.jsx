@@ -4,9 +4,81 @@ import {
   faLinkedin,
   faYahoo,
 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faLaptopCode,
+  faBriefcase,
+  faGraduationCap,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./About.module.css";
 import Navbar from "./Navbar";
+
+const skills = [
+  {
+    logo: "/skills/HTML5.png",
+    name: "HTML",
+  },
+  {
+    logo: "/skills/CSS3.png",
+    name: "CSS",
+  },
+  {
+    logo: "/skills/JavaScript.png",
+    name: "JavaScript",
+  },
+  {
+    logo: "/skills/React.png",
+    name: "React",
+  },
+  {
+    logo: "/skills/Next.png",
+    name: "Next.js",
+  },
+  {
+    logo: "/skills/Tailwind.png",
+    name: "Tailwind",
+  },
+  {
+    logo: "/skills/Bootstrap.png",
+    name: "Bootstrap",
+  },
+  {
+    logo: "/skills/MaterialUI.png",
+    name: "Material UI",
+  },
+  {
+    logo: "/skills/PHP.png",
+    name: "PHP",
+  },
+  {
+    logo: "/skills/MySQL.png",
+    name: "MySQL",
+  },
+  {
+    logo: "/skills/MongoDB.png",
+    name: "MongoDB",
+  },
+  {
+    logo: "/skills/Firebase.png",
+    name: "Firebase",
+  },
+  {
+    logo: "/skills/Supabase.png",
+    name: "Supabase",
+  },
+  {
+    logo: "/skills/Vite.png",
+    name: "Vite",
+  },
+  {
+    logo: "/skills/Vercel.png",
+    name: "Vercel",
+  },
+  {
+    logo: "/skills/Git.png",
+    name: "Git",
+  },
+];
 
 function About() {
   const [selectedSection, setSelectedSection] = useState("Skills");
@@ -14,13 +86,20 @@ function About() {
   const renderContent = () => {
     switch (selectedSection) {
       case "Skills":
-        return <p>My skills include React, JavaScript, CSS, and more.</p>;
+        return (
+          <div className={styles.skillsGrid}>
+            {skills.map((skill) => (
+              <div key={skill.name} className={styles.skillCard}>
+                <img src={skill.logo} alt={`${skill.name} Logo`} />
+                <h3>{skill.name}</h3>
+              </div>
+            ))}
+          </div>
+        );
       case "Experience":
         return <p>I have experience working on web development projects...</p>;
       case "Education":
         return <p>I completed my studies in Economic Informatics...</p>;
-      case "Resume":
-        return <p>Download my resume to learn more about my experience.</p>;
       default:
         return <p>Select a section to view its content.</p>;
     }
@@ -33,6 +112,7 @@ function About() {
         <h1 className={styles.title}>Discover More About Me</h1>
         <div className={styles.grid}>
           <div className={styles.sectionLeft}>
+            <img src="/avatar.png" />
             <h2>Eduard Milotai</h2>
             <h4>Frontend Developer</h4>
             <div className={styles.socialContainer}>
@@ -61,15 +141,28 @@ function About() {
             </div>
             <hr />
             <div className={styles.menu}>
-              {["Skills", "Experience", "Education", "Resume"].map((item) => (
+              {[
+                { name: "Skills", icon: faLaptopCode },
+                { name: "Experience", icon: faBriefcase },
+                { name: "Education", icon: faGraduationCap },
+              ].map((item) => (
                 <button
-                  key={item}
+                  key={item.name}
                   className={`${styles.menuButton} ${
-                    selectedSection === item ? styles.active : ""
+                    selectedSection === item.name ? styles.active : ""
                   }`}
-                  onClick={() => setSelectedSection(item)}
+                  onClick={() => setSelectedSection(item.name)}
                 >
-                  {item}
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    className={styles.menuIcon}
+                    style={{
+                      marginRight: "5px",
+                      width: "24px",
+                    }}
+                  />
+                  {"  "}
+                  {item.name}
                 </button>
               ))}
             </div>

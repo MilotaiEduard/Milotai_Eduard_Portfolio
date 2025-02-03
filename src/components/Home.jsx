@@ -137,7 +137,7 @@ function Home() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <DotLottieReact src="/public/Animation.lottie" loop autoplay />
+            <DotLottieReact src="/Animation.lottie" loop autoplay />
           </motion.div>
         </div>
 
