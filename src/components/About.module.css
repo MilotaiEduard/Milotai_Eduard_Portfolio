@@ -29,6 +29,8 @@ body {
   place-items: center;
   grid-template-columns: 3fr 9fr;
   gap: 50px;
+  align-items: start;
+  margin-top: 25px;
 }
 
 .sectionLeft {

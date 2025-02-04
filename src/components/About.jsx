@@ -10,6 +10,14 @@ import {
   faGraduationCap,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+} from "@mui/lab";
 import styles from "./About.module.css";
 import Navbar from "./Navbar";
 
@@ -97,9 +105,80 @@ function About() {
           </div>
         );
       case "Experience":
-        return <p>I have experience working on web development projects...</p>;
+        return (
+          <Timeline position="alternate-reverse">
+            {/* Freelancer Experience */}
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot color="primary" />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <h3>Freelancer</h3>
+                <h4 style={{ color: "#808080" }}>Self-Employed</h4>
+                <p style={{ color: "#808080" }}>October 2024 - Present</p>
+              </TimelineContent>
+            </TimelineItem>
+
+            {/* Frontend Developer Intern Experience */}
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot color="primary" />
+              </TimelineSeparator>
+              <TimelineContent>
+                <h3>Frontend Developer Intern</h3>
+                <h4 style={{ color: "#808080" }}>TUD Group</h4>
+                <p style={{ color: "#808080" }}>May 2023 - June 2023</p>
+              </TimelineContent>
+            </TimelineItem>
+          </Timeline>
+        );
       case "Education":
-        return <p>I completed my studies in Economic Informatics...</p>;
+        return (
+          <Timeline position="alternate-reverse">
+            {/* Master's Degree */}
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot color="primary" />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <h3>Master’s Degree in Computer Science</h3>
+                <h4 style={{ color: "#808080" }}>
+                  Romanian-American University
+                </h4>
+                <p style={{ color: "#808080" }}>2024 - 2026</p>
+              </TimelineContent>
+            </TimelineItem>
+
+            {/* Bachelor's Degree */}
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot color="primary" />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <h3>Bachelor’s Degree in Computer Science</h3>
+                <h4 style={{ color: "#808080" }}>
+                  Romanian-American University
+                </h4>
+                <p style={{ color: "#808080" }}>2021 - 2024</p>
+              </TimelineContent>
+            </TimelineItem>
+
+            {/* High School Diploma */}
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot color="primary" />
+              </TimelineSeparator>
+              <TimelineContent>
+                <h3>High School Diploma in Mathematics and Informatics</h3>
+                <h4 style={{ color: "#808080" }}>C.A.Rosetti High School</h4>
+                <p style={{ color: "#808080" }}>2017 - 2021</p>
+              </TimelineContent>
+            </TimelineItem>
+          </Timeline>
+        );
       default:
         return <p>Select a section to view its content.</p>;
     }
