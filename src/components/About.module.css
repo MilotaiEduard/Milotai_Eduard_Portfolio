@@ -1,6 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
+  background-color: #060b18;
 }
 
 .container {
@@ -96,6 +97,90 @@ body {
 .skillCard:hover {
   transform: scale(1.1);
   box-shadow: 0px 0px 15px rgba(30, 144, 255, 0.5);
+}
+
+.certificatesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.certificateCard {
+  position: relative;
+  background-color: #1e293b;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 380px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificateCard img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.certificateCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px rgba(30, 144, 255, 0.5);
+}
+
+.fullscreenIcon {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 1.2rem;
+  color: black;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.certificateCard:hover .fullscreenIcon {
+  opacity: 1;
+}
+
+.fullscreenOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.fullscreenImage {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.fullscreenClose {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.fullscreenClose:hover {
+  transform: scale(1.2);
 }
 
 .socialContainer {

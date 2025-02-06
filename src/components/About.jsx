@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 import {
   faGithub,
   faLinkedin,
@@ -8,6 +10,9 @@ import {
   faLaptopCode,
   faBriefcase,
   faGraduationCap,
+  faCertificate,
+  faExpand,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,6 +23,7 @@ import {
   TimelineContent,
   TimelineDot,
 } from "@mui/lab";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./About.module.css";
 import Navbar from "./Navbar";
 
@@ -90,107 +96,174 @@ const skills = [
 
 function About() {
   const [selectedSection, setSelectedSection] = useState("Skills");
+  const [certificates, setCertificates] = useState([]);
+  const [fullscreenImage, setFullscreenImage] = useState(null);
+
+  useEffect(() => {
+    const fetchCertificates = async () => {
+      const querySnapshot = await getDocs(collection(db, "certificates"));
+      const certs = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        img: doc.data().Img,
+      }));
+
+      setCertificates(certs);
+    };
+
+    fetchCertificates();
+  }, []);
+
+  const openFullscreen = (imgSrc) => {
+    setFullscreenImage(imgSrc);
+  };
+
+  const closeFullscreen = () => {
+    setFullscreenImage(null);
+  };
 
   const renderContent = () => {
-    switch (selectedSection) {
-      case "Skills":
-        return (
-          <div className={styles.skillsGrid}>
-            {skills.map((skill) => (
-              <div key={skill.name} className={styles.skillCard}>
-                <img src={skill.logo} alt={`${skill.name} Logo`} />
-                <h3>{skill.name}</h3>
-              </div>
-            ))}
-          </div>
-        );
-      case "Experience":
-        return (
-          <Timeline position="alternate-reverse">
-            {/* Freelancer Experience */}
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineDot color="primary" />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <h3>Freelancer</h3>
-                <h4 style={{ color: "#808080" }}>Self-Employed</h4>
-                <p style={{ color: "#808080" }}>October 2024 - Present</p>
-              </TimelineContent>
-            </TimelineItem>
+    return (
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={selectedSection}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.5 }}
+        >
+          {selectedSection === "Skills" && (
+            <div className={styles.skillsGrid}>
+              {skills.map((skill) => (
+                <div key={skill.name} className={styles.skillCard}>
+                  <img src={skill.logo} alt={`${skill.name} Logo`} />
+                  <h3>{skill.name}</h3>
+                </div>
+              ))}
+            </div>
+          )}
+          {selectedSection === "Experience" && (
+            <Timeline position="alternate-reverse">
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot color="primary" />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <h3>Freelancer</h3>
+                  <h4 style={{ color: "#808080" }}>Self-Employed</h4>
+                  <p style={{ color: "#808080" }}>October 2024 - Present</p>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot color="primary" />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <h3>ECHO Winter School</h3>
+                  <h4 style={{ color: "#808080" }}>ECHO</h4>
+                  <p style={{ color: "#808080" }}>February 18 - 20, 2025</p>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot color="primary" />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <h3>Frontend Developer Intern</h3>
+                  <h4 style={{ color: "#808080" }}>TUD Group</h4>
+                  <p style={{ color: "#808080" }}>May 2023 - June 2023</p>
+                </TimelineContent>
+              </TimelineItem>
+            </Timeline>
+          )}
+          {selectedSection === "Education" && (
+            <Timeline position="alternate-reverse">
+              {/* Master's Degree */}
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot color="primary" />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <h3>Master’s Degree in Computer Science</h3>
+                  <h4 style={{ color: "#808080" }}>
+                    Romanian-American University
+                  </h4>
+                  <p style={{ color: "#808080" }}>2024 - 2026</p>
+                </TimelineContent>
+              </TimelineItem>
 
-            {/* Frontend Developer Intern Experience */}
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineDot color="primary" />
-              </TimelineSeparator>
-              <TimelineContent>
-                <h3>Frontend Developer Intern</h3>
-                <h4 style={{ color: "#808080" }}>TUD Group</h4>
-                <p style={{ color: "#808080" }}>May 2023 - June 2023</p>
-              </TimelineContent>
-            </TimelineItem>
-          </Timeline>
-        );
-      case "Education":
-        return (
-          <Timeline position="alternate-reverse">
-            {/* Master's Degree */}
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineDot color="primary" />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <h3>Master’s Degree in Computer Science</h3>
-                <h4 style={{ color: "#808080" }}>
-                  Romanian-American University
-                </h4>
-                <p style={{ color: "#808080" }}>2024 - 2026</p>
-              </TimelineContent>
-            </TimelineItem>
+              {/* Bachelor's Degree */}
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot color="primary" />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <h3>Bachelor’s Degree in Computer Science</h3>
+                  <h4 style={{ color: "#808080" }}>
+                    Romanian-American University
+                  </h4>
+                  <p style={{ color: "#808080" }}>2021 - 2024</p>
+                </TimelineContent>
+              </TimelineItem>
 
-            {/* Bachelor's Degree */}
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineDot color="primary" />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <h3>Bachelor’s Degree in Computer Science</h3>
-                <h4 style={{ color: "#808080" }}>
-                  Romanian-American University
-                </h4>
-                <p style={{ color: "#808080" }}>2021 - 2024</p>
-              </TimelineContent>
-            </TimelineItem>
+              {/* High School Diploma */}
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot color="primary" />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <h3>High School Diploma in Mathematics and Informatics</h3>
+                  <h4 style={{ color: "#808080" }}>C.A.Rosetti High School</h4>
+                  <p style={{ color: "#808080" }}>2017 - 2021</p>
+                </TimelineContent>
+              </TimelineItem>
+            </Timeline>
+          )}
 
-            {/* High School Diploma */}
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineDot color="primary" />
-              </TimelineSeparator>
-              <TimelineContent>
-                <h3>High School Diploma in Mathematics and Informatics</h3>
-                <h4 style={{ color: "#808080" }}>C.A.Rosetti High School</h4>
-                <p style={{ color: "#808080" }}>2017 - 2021</p>
-              </TimelineContent>
-            </TimelineItem>
-          </Timeline>
-        );
-      default:
-        return <p>Select a section to view its content.</p>;
-    }
+          {selectedSection === "Certificates" && (
+            <div className={styles.certificatesGrid}>
+              {certificates.map((certificate) => (
+                <div
+                  key={certificate.id}
+                  className={styles.certificateCard}
+                  onClick={() => openFullscreen(certificate.img)}
+                >
+                  <img src={certificate.img} alt="Certificate" />
+                  <FontAwesomeIcon
+                    icon={faExpand}
+                    className={styles.fullscreenIcon}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
+    );
   };
 
   return (
     <>
       <Navbar />
       <div className={styles.container}>
-        <h1 className={styles.title}>Discover More About Me</h1>
+        <motion.h1
+          className={styles.title}
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          Discover More About Me
+        </motion.h1>
         <div className={styles.grid}>
-          <div className={styles.sectionLeft}>
+          <motion.div
+            className={styles.sectionLeft}
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
             <img src="/avatar.png" />
             <h2>Eduard Milotai</h2>
             <h4>Frontend Developer</h4>
@@ -224,6 +297,7 @@ function About() {
                 { name: "Skills", icon: faLaptopCode },
                 { name: "Experience", icon: faBriefcase },
                 { name: "Education", icon: faGraduationCap },
+                { name: "Certificates", icon: faCertificate },
               ].map((item) => (
                 <button
                   key={item.name}
@@ -245,9 +319,31 @@ function About() {
                 </button>
               ))}
             </div>
-          </div>
-          <div className={styles.sectionRight}>{renderContent()}</div>
+          </motion.div>
+          <motion.div
+            className={styles.sectionRight}
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            {renderContent()}
+          </motion.div>
         </div>
+
+        {fullscreenImage && (
+          <div className={styles.fullscreenOverlay} onClick={closeFullscreen}>
+            <img
+              src={fullscreenImage}
+              alt="Fullscreen"
+              className={styles.fullscreenImage}
+            />
+            <FontAwesomeIcon
+              icon={faTimes}
+              className={styles.fullscreenClose}
+              onClick={closeFullscreen}
+            />
+          </div>
+        )}
       </div>
     </>
   );
