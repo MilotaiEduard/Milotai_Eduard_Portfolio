@@ -245,6 +245,16 @@ hr {
   height: auto;
 }
 
+@media (max-width: 1440px) {
+  .certificatesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .certificateCard {
+    width: 300px;
+  }
+}
+
 @media (max-width: 768px) {
   .sectionLeft {
     max-width: 350px;
