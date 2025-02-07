@@ -245,7 +245,7 @@ hr {
   height: auto;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1920px) {
   .certificatesGrid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
@@ -255,9 +255,28 @@ hr {
   }
 }
 
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 3fr 8fr;
+    gap: 50px;
+  }
+
+  .skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 32px;
+    padding: 20px;
+    justify-items: center;
+  }
+}
+
 @media (max-width: 768px) {
+  .title {
+    font-size: 2.3rem;
+  }
+
   .sectionLeft {
-    max-width: 350px;
+    max-width: 450px;
   }
 
   .grid {

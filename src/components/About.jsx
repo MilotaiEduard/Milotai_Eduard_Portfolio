@@ -216,7 +216,7 @@ function About() {
                 </TimelineSeparator>
                 <TimelineContent>
                   <h3>High School Diploma in Mathematics and Informatics</h3>
-                  <h4 style={{ color: "#808080" }}>C.A.Rosetti High School</h4>
+                  <h4 style={{ color: "#808080" }}>C.A. Rosetti High School</h4>
                   <p style={{ color: "#808080" }}>2017 - 2021</p>
                 </TimelineContent>
               </TimelineItem>
