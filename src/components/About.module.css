@@ -245,6 +245,7 @@ hr {
   height: auto;
 }
 
+/*RESPONSIVE DESIGN*/
 @media (max-width: 1920px) {
   .certificatesGrid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -300,5 +301,64 @@ hr {
   .menuButton.active {
     border-right: none;
     border-bottom: 2px solid #1e90ff;
+  }
+}
+
+@media (max-width: 425px) {
+  .title {
+    font-size: 1.8rem;
+    padding-top: 125px;
+    margin-bottom: 25px;
+  }
+
+  .grid {
+    gap: 25px;
+  }
+
+  .sectionLeft {
+    max-width: 375px;
+  }
+
+  .sectionLeft img {
+    height: 110px;
+    width: 110px;
+  }
+
+  .sectionLeft h2 {
+    font-size: 1.6rem;
+  }
+
+  .sectionLeft h4 {
+    font-size: 1.1rem;
+  }
+
+  .menuButton {
+    font-size: 1.1rem;
+  }
+
+  .skillCard {
+    width: 140px;
+  }
+
+  .skillCard img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skillCard h3 {
+    font-size: 0.9rem;
+  }
+
+  .certificateCard {
+    width: 275px;
+  }
+
+  .timelineTitle {
+    font-size: 1.1rem;
+  }
+
+  .timelineCompany,
+  .timelineDate {
+    font-size: 0.9rem;
   }
 }

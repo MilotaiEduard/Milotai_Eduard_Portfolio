@@ -149,9 +149,19 @@ function About() {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <h3>Freelancer</h3>
-                  <h4 style={{ color: "#808080" }}>Self-Employed</h4>
-                  <p style={{ color: "#808080" }}>October 2024 - Present</p>
+                  <h3 className={styles.timelineTitle}>Freelancer</h3>
+                  <h4
+                    className={styles.timelineCompany}
+                    style={{ color: "#808080" }}
+                  >
+                    Self-Employed
+                  </h4>
+                  <p
+                    className={styles.timelineDate}
+                    style={{ color: "#808080" }}
+                  >
+                    October 2024 - Present
+                  </p>
                 </TimelineContent>
               </TimelineItem>
               <TimelineItem>
@@ -160,9 +170,19 @@ function About() {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <h3>ECHO Winter School</h3>
-                  <h4 style={{ color: "#808080" }}>ECHO</h4>
-                  <p style={{ color: "#808080" }}>February 18 - 20, 2025</p>
+                  <h3 className={styles.timelineTitle}>ECHO Winter School</h3>
+                  <h4
+                    className={styles.timelineCompany}
+                    style={{ color: "#808080" }}
+                  >
+                    ECHO
+                  </h4>
+                  <p
+                    className={styles.timelineDate}
+                    style={{ color: "#808080" }}
+                  >
+                    February 18 - 20, 2025
+                  </p>
                 </TimelineContent>
               </TimelineItem>
               <TimelineItem>
@@ -170,9 +190,21 @@ function About() {
                   <TimelineDot color="primary" />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <h3>Frontend Developer Intern</h3>
-                  <h4 style={{ color: "#808080" }}>TUD Group</h4>
-                  <p style={{ color: "#808080" }}>May 2023 - June 2023</p>
+                  <h3 className={styles.timelineTitle}>
+                    Frontend Developer Intern
+                  </h3>
+                  <h4
+                    className={styles.timelineCompany}
+                    style={{ color: "#808080" }}
+                  >
+                    TUD Group
+                  </h4>
+                  <p
+                    className={styles.timelineDate}
+                    style={{ color: "#808080" }}
+                  >
+                    May 2023 - June 2023
+                  </p>
                 </TimelineContent>
               </TimelineItem>
             </Timeline>
@@ -186,11 +218,21 @@ function About() {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <h3>Master’s Degree in Computer Science</h3>
-                  <h4 style={{ color: "#808080" }}>
+                  <h3 className={styles.timelineTitle}>
+                    Master’s Degree in Computer Science
+                  </h3>
+                  <h4
+                    className={styles.timelineCompany}
+                    style={{ color: "#808080" }}
+                  >
                     Romanian-American University
                   </h4>
-                  <p style={{ color: "#808080" }}>2024 - 2026</p>
+                  <p
+                    className={styles.timelineDate}
+                    style={{ color: "#808080" }}
+                  >
+                    2024 - 2026
+                  </p>
                 </TimelineContent>
               </TimelineItem>
 
@@ -201,11 +243,21 @@ function About() {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <h3>Bachelor’s Degree in Computer Science</h3>
-                  <h4 style={{ color: "#808080" }}>
+                  <h3 className={styles.timelineTitle}>
+                    Bachelor’s Degree in Computer Science
+                  </h3>
+                  <h4
+                    className={styles.timelineCompany}
+                    style={{ color: "#808080" }}
+                  >
                     Romanian-American University
                   </h4>
-                  <p style={{ color: "#808080" }}>2021 - 2024</p>
+                  <p
+                    className={styles.timelineDate}
+                    style={{ color: "#808080" }}
+                  >
+                    2021 - 2024
+                  </p>
                 </TimelineContent>
               </TimelineItem>
 
@@ -215,9 +267,21 @@ function About() {
                   <TimelineDot color="primary" />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <h3>High School Diploma in Mathematics and Informatics</h3>
-                  <h4 style={{ color: "#808080" }}>C.A. Rosetti High School</h4>
-                  <p style={{ color: "#808080" }}>2017 - 2021</p>
+                  <h3 className={styles.timelineTitle}>
+                    High School Diploma in Mathematics and Informatics
+                  </h3>
+                  <h4
+                    className={styles.timelineCompany}
+                    style={{ color: "#808080" }}
+                  >
+                    C.A. Rosetti High School
+                  </h4>
+                  <p
+                    className={styles.timelineDate}
+                    style={{ color: "#808080" }}
+                  >
+                    2017 - 2021
+                  </p>
                 </TimelineContent>
               </TimelineItem>
             </Timeline>
