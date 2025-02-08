@@ -417,3 +417,64 @@ hr {
     font-size: 0.8rem;
   }
 }
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .sectionLeft {
+    max-width: 320px;
+  }
+
+  .sectionLeft img {
+    height: 80px;
+    width: 80px;
+  }
+
+  .sectionLeft h2 {
+    font-size: 1.2rem;
+  }
+
+  .sectionLeft h4 {
+    font-size: 0.9rem;
+  }
+
+  .menuButton {
+    font-size: 0.9rem;
+  }
+
+  .sectionRight {
+    padding: 20px 0;
+  }
+
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .skillCard {
+    width: 110px;
+  }
+
+  .skillCard img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .skillCard h3 {
+    font-size: 0.8rem;
+  }
+
+  .certificateCard {
+    width: 220px;
+  }
+
+  .timelineTitle {
+    font-size: 0.9rem;
+  }
+
+  .timelineCompany,
+  .timelineDate {
+    font-size: 0.7rem;
+  }
+}
