@@ -362,3 +362,58 @@ hr {
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .sectionLeft {
+    max-width: 370px;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .sectionLeft img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .sectionLeft h2 {
+    font-size: 1.4rem;
+  }
+
+  .sectionLeft h4 {
+    font-size: 1rem;
+  }
+
+  .menuButton {
+    font-size: 1rem;
+  }
+
+  .skillCard {
+    width: 135px;
+  }
+
+  .skillCard img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .skillCard h3 {
+    font-size: 0.9rem;
+  }
+
+  .certificateCard {
+    width: 265px;
+  }
+
+  .timelineTitle {
+    font-size: 1rem;
+  }
+
+  .timelineCompany,
+  .timelineDate {
+    font-size: 0.8rem;
+  }
+}
