@@ -26,6 +26,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.2",
     "react-tsparticles": "^2.9.3",
+    "swiper": "^11.2.2",
     "tsparticles": "^2.9.3",
     "typewriter-effect": "^2.21.0"
   },
