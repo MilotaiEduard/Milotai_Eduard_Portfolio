@@ -3,14 +3,6 @@ import Navbar from "./Navbar";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { motion } from "framer-motion";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Button,
-  Dialog,
-  Typography,
-} from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import styles from "./Projects.module.css";
@@ -54,70 +46,66 @@ function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
+              className={styles.projectCard}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
+              onClick={() => handleOpenDialog(project)}
             >
-              <Card className={styles.projectCard}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={project.Img[0]} // Prima imagine
+              <div className={styles.imageWrapper}>
+                <img
+                  src={project.Img[0]} // Prima imagine
                   alt={project.Title}
+                  className={styles.projectImage}
                 />
-                <CardContent>
-                  <Typography variant="h5">{project.Title}</Typography>
-                  <Typography variant="body2" className={styles.description}>
-                    {project.Description.length > 100
-                      ? project.Description.substring(0, 100) + "..."
-                      : project.Description}
-                  </Typography>
-                  <div className={styles.techStack}>
-                    {project.Technologies.map((tech, idx) => (
-                      <span key={idx} className={styles.techItem}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className={styles.cardActions}>
-                    <Button
-                      size="small"
-                      href={project.LiveDemo}
-                      target="_blank"
-                      className={styles.liveDemo}
-                    >
-                      Live Demo
-                    </Button>
-                    <Button
-                      size="small"
-                      href={project.GitHub}
-                      target="_blank"
-                      className={styles.github}
-                    >
-                      GitHub
-                    </Button>
-                    <Button
-                      size="small"
-                      onClick={() => handleOpenDialog(project)}
-                      className={styles.details}
-                    >
-                      Details
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                {/* <span className={styles.imageCount}>
+                  1 / {project.Img.length}
+                </span> */}
+              </div>
+              <div className={styles.cardContent}>
+                <h3 className={styles.projectTitle}>{project.Title}</h3>
+                <p className={styles.projectDescription}>
+                  {project.Description.length > 100
+                    ? project.Description.substring(0, 100) + "..."
+                    : project.Description}
+                </p>
+                <div className={styles.techStack}>
+                  {project.Technologies.map((tech, idx) => (
+                    <span key={idx} className={styles.techItem}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className={styles.cardActions}>
+                  <a
+                    href={project.LiveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.actionButton}
+                  >
+                    Live Demo
+                  </a>
+                  <a
+                    href={project.GitHub}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.actionButton}
+                  >
+                    GitHub
+                  </a>
+                  <button className={styles.detailsButton}>Details</button>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
 
         {selectedProject && (
-          <Dialog
-            open={!!selectedProject}
-            onClose={handleCloseDialog}
-            fullWidth
-            maxWidth="md"
-          >
-            <div className={styles.dialogContent}>
+          <div className={styles.dialogOverlay} onClick={handleCloseDialog}>
+            <div
+              className={styles.dialogContent}
+              onClick={(e) => e.stopPropagation()}
+            >
               <Swiper spaceBetween={10} slidesPerView={1}>
                 {selectedProject.Img.map((img, index) => (
                   <SwiperSlide key={index}>
@@ -130,10 +118,10 @@ function Projects() {
                 ))}
               </Swiper>
               <div className={styles.dialogDetails}>
-                <Typography variant="h4">{selectedProject.Title}</Typography>
-                <Typography variant="body1">
+                <h3 className={styles.dialogTitle}>{selectedProject.Title}</h3>
+                <p className={styles.dialogDescription}>
                   {selectedProject.Description}
-                </Typography>
+                </p>
                 <div className={styles.dialogTechStack}>
                   {selectedProject.Technologies.map((tech, idx) => (
                     <span key={idx} className={styles.techItem}>
@@ -142,33 +130,32 @@ function Projects() {
                   ))}
                 </div>
                 <div className={styles.dialogActions}>
-                  <Button
-                    size="small"
+                  <a
                     href={selectedProject.LiveDemo}
                     target="_blank"
-                    className={styles.liveDemo}
+                    rel="noopener noreferrer"
+                    className={styles.actionButton}
                   >
                     Live Demo
-                  </Button>
-                  <Button
-                    size="small"
+                  </a>
+                  <a
                     href={selectedProject.GitHub}
                     target="_blank"
-                    className={styles.github}
+                    rel="noopener noreferrer"
+                    className={styles.actionButton}
                   >
                     GitHub
-                  </Button>
+                  </a>
                 </div>
-                <Button
-                  size="small"
+                <button
+                  className={styles.closeDialogButton}
                   onClick={handleCloseDialog}
-                  className={styles.closeDialog}
                 >
                   Close
-                </Button>
+                </button>
               </div>
             </div>
-          </Dialog>
+          </div>
         )}
       </div>
     </div>
