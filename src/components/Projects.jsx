@@ -5,6 +5,12 @@ import { db } from "../firebase/firebaseConfig";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faExternalLinkAlt,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./Projects.module.css";
 
 function Projects() {
@@ -76,24 +82,29 @@ function Projects() {
                     </span>
                   ))}
                 </div>
+                <hr className={styles.separator} />
                 <div className={styles.cardActions}>
-                  <a
-                    href={project.LiveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.actionButton}
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.GitHub}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.actionButton}
-                  >
-                    GitHub
-                  </a>
-                  <button className={styles.detailsButton}>Details</button>
+                  <div className={styles.leftActions}>
+                    <a
+                      href={project.LiveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.actionButton}
+                    >
+                      <FontAwesomeIcon icon={faExternalLinkAlt} />{" "}
+                    </a>
+                    <a
+                      href={project.GitHub}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.actionButton}
+                    >
+                      <FontAwesomeIcon icon={faGithub} />{" "}
+                    </a>
+                  </div>
+                  <button className={styles.detailsButton}>
+                    Details <FontAwesomeIcon icon={faArrowRight} />
+                  </button>
                 </div>
               </div>
             </motion.div>
