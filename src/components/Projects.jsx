@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "./Navbar";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
@@ -6,16 +6,36 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  faHtml5,
+  faCss3Alt,
+  faJs,
+  faReact,
+  faBootstrap,
+  faPhp,
+} from "@fortawesome/free-brands-svg-icons";
+import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import {
   faExternalLinkAlt,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Projects.module.css";
 
+const technologyIcons = {
+  HTML: faHtml5,
+  CSS: faCss3Alt,
+  JavaScript: faJs,
+  React: faReact,
+  Bootstrap: faBootstrap,
+  PHP: faPhp,
+  MySQL: faDatabase,
+};
+
 function Projects() {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+  const techStackRefs = useRef([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -33,6 +53,29 @@ function Projects() {
 
   const handleCloseDialog = () => {
     setSelectedProject(null);
+  };
+
+  const handleMouseDown = (e, index) => {
+    const container = techStackRefs.current[index];
+    container.isDragging = true;
+    container.startX = e.pageX - container.offsetLeft;
+    container.initialScrollLeft = container.scrollLeft;
+    container.style.cursor = "grabbing";
+  };
+
+  const handleMouseMove = (e, index) => {
+    const container = techStackRefs.current[index];
+    if (!container.isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = x - container.startX;
+    container.scrollLeft = container.initialScrollLeft - walk;
+  };
+
+  const handleMouseUp = (index) => {
+    const container = techStackRefs.current[index];
+    container.isDragging = false;
+    container.style.cursor = "grab";
   };
 
   return (
@@ -56,17 +99,13 @@ function Projects() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              onClick={() => handleOpenDialog(project)}
             >
               <div className={styles.imageWrapper}>
                 <img
-                  src={project.Img[0]} // Prima imagine
+                  src={project.Img[0]}
                   alt={project.Title}
                   className={styles.projectImage}
                 />
-                {/* <span className={styles.imageCount}>
-                  1 / {project.Img.length}
-                </span> */}
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.projectTitle}>{project.Title}</h3>
@@ -75,9 +114,20 @@ function Projects() {
                     ? project.Description.substring(0, 100) + "..."
                     : project.Description}
                 </p>
-                <div className={styles.techStack}>
+                <div
+                  className={styles.techStack}
+                  ref={(el) => (techStackRefs.current[index] = el)}
+                  onMouseDown={(e) => handleMouseDown(e, index)}
+                  onMouseMove={(e) => handleMouseMove(e, index)}
+                  onMouseUp={() => handleMouseUp(index)}
+                  onMouseLeave={() => handleMouseUp(index)}
+                >
                   {project.Technologies.map((tech, idx) => (
                     <span key={idx} className={styles.techItem}>
+                      <FontAwesomeIcon
+                        icon={technologyIcons[tech]}
+                        className={styles.techIcon}
+                      />
                       {tech}
                     </span>
                   ))}
@@ -85,24 +135,31 @@ function Projects() {
                 <hr className={styles.separator} />
                 <div className={styles.cardActions}>
                   <div className={styles.leftActions}>
-                    <a
-                      href={project.LiveDemo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.actionButton}
-                    >
-                      <FontAwesomeIcon icon={faExternalLinkAlt} />{" "}
-                    </a>
+                    {project.LiveDemo ? (
+                      <a
+                        href={project.LiveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.actionButton}
+                      >
+                        <FontAwesomeIcon icon={faExternalLinkAlt} />
+                      </a>
+                    ) : (
+                      <p className={styles.noDemo}>No Demo Available</p>
+                    )}
                     <a
                       href={project.GitHub}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.actionButton}
                     >
-                      <FontAwesomeIcon icon={faGithub} />{" "}
+                      <FontAwesomeIcon icon={faGithub} />
                     </a>
                   </div>
-                  <button className={styles.detailsButton}>
+                  <button
+                    className={styles.detailsButton}
+                    onClick={() => handleOpenDialog(project)}
+                  >
                     Details <FontAwesomeIcon icon={faArrowRight} />
                   </button>
                 </div>
