@@ -176,7 +176,8 @@ body {
   background-color: #1e90ff;
 }
 
-.noDemo {
+.noDemo,
+.noGitHub {
   display: flex;
   align-items: center;
   color: #b6b6b6;

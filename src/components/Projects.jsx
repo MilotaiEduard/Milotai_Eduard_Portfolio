@@ -147,14 +147,18 @@ function Projects() {
                     ) : (
                       <p className={styles.noDemo}>No Demo Available</p>
                     )}
-                    <a
-                      href={project.GitHub}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.actionButton}
-                    >
-                      <FontAwesomeIcon icon={faGithub} />
-                    </a>
+                    {project.GitHub ? (
+                      <a
+                        href={project.GitHub}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.actionButton}
+                      >
+                        <FontAwesomeIcon icon={faGithub} />
+                      </a>
+                    ) : (
+                      <p className={styles.noGitHub}>Private Repository</p>
+                    )}
                   </div>
                   <button
                     className={styles.detailsButton}
