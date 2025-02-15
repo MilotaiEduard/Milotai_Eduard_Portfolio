@@ -106,6 +106,9 @@ function Projects() {
                   alt={project.Title}
                   className={styles.projectImage}
                 />
+                {project.isRealClient && (
+                  <span className={styles.realClientTag}>Client Project</span>
+                )}
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.projectTitle}>{project.Title}</h3>
@@ -145,7 +148,7 @@ function Projects() {
                         <FontAwesomeIcon icon={faExternalLinkAlt} />
                       </a>
                     ) : (
-                      <p className={styles.noDemo}>No Demo Available</p>
+                      <p className={styles.noDemo}>Live Demo Unavailable</p>
                     )}
                     {project.GitHub ? (
                       <a
