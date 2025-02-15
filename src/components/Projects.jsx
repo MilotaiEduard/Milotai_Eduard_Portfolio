@@ -175,12 +175,20 @@ function Projects() {
           ))}
         </div>
 
+        {/* Dialog */}
         {selectedProject && (
           <div className={styles.dialogOverlay} onClick={handleCloseDialog}>
             <div
               className={styles.dialogContent}
               onClick={(e) => e.stopPropagation()}
             >
+              <button
+                className={styles.closeDialogButton}
+                onClick={handleCloseDialog}
+              >
+                &times;
+              </button>
+
               <Swiper spaceBetween={10} slidesPerView={1}>
                 {selectedProject.Img.map((img, index) => (
                   <SwiperSlide key={index}>
@@ -205,29 +213,31 @@ function Projects() {
                   ))}
                 </div>
                 <div className={styles.dialogActions}>
-                  <a
-                    href={selectedProject.LiveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.actionButton}
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={selectedProject.GitHub}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.actionButton}
-                  >
-                    GitHub
-                  </a>
+                  {selectedProject.LiveDemo ? (
+                    <a
+                      href={selectedProject.LiveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.actionButton}
+                    >
+                      <FontAwesomeIcon icon={faExternalLinkAlt} />
+                    </a>
+                  ) : (
+                    <p className={styles.noDemo}>Live Demo Unavailable</p>
+                  )}
+                  {selectedProject.GitHub ? (
+                    <a
+                      href={selectedProject.GitHub}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.actionButton}
+                    >
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                  ) : (
+                    <p className={styles.noGitHub}>Private Repository</p>
+                  )}
                 </div>
-                <button
-                  className={styles.closeDialogButton}
-                  onClick={handleCloseDialog}
-                >
-                  Close
-                </button>
               </div>
             </div>
           </div>
