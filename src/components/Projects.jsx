@@ -208,6 +208,10 @@ function Projects() {
                 <div className={styles.dialogTechStack}>
                   {selectedProject.Technologies.map((tech, idx) => (
                     <span key={idx} className={styles.techItem}>
+                      <FontAwesomeIcon
+                        icon={technologyIcons[tech]}
+                        className={styles.techIcon}
+                      />
                       {tech}
                     </span>
                   ))}
