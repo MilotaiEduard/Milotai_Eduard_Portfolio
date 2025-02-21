@@ -175,7 +175,7 @@ function About() {
                     className={styles.timelineCompany}
                     style={{ color: "#808080" }}
                   >
-                    ECHO School
+                    ECHO School x Amber
                   </h4>
                   <p
                     className={styles.timelineDate}
