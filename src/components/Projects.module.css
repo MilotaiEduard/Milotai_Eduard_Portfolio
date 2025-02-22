@@ -269,6 +269,7 @@ body {
   margin-bottom: 20px;
   margin-top: 50px;
   border-radius: 10px;
+  position: relative;
 }
 
 .dialogTitle {
@@ -312,4 +313,36 @@ body {
 .dialogActions {
   display: flex;
   gap: 10px;
+}
+
+.swiperButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  padding: 30px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiperButton:hover {
+  background-color: #005f9e;
+}
+
+:global(.swiper-button-prev) {
+  left: 20px;
+}
+
+:global(.swiper-button-next) {
+  right: 20px;
 }

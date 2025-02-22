@@ -4,7 +4,9 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
@@ -15,7 +17,11 @@ import {
   faBootstrap,
   faPhp,
 } from "@fortawesome/free-brands-svg-icons";
-import { faDatabase } from "@fortawesome/free-solid-svg-icons";
+import {
+  faDatabase,
+  faAngleLeft,
+  faAngleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faExternalLinkAlt,
   faArrowRight,
@@ -189,7 +195,16 @@ function Projects() {
                 &times;
               </button>
 
-              <Swiper spaceBetween={10} slidesPerView={1}>
+              {/* Swiper cu butoane de navigare */}
+              <Swiper
+                spaceBetween={10}
+                slidesPerView={1}
+                navigation={{
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                }}
+                modules={[Navigation]}
+              >
                 {selectedProject.Img.map((img, index) => (
                   <SwiperSlide key={index}>
                     <img
@@ -200,6 +215,20 @@ function Projects() {
                   </SwiperSlide>
                 ))}
               </Swiper>
+
+              <button className={`swiper-button-prev ${styles.swiperButton}`}>
+                <FontAwesomeIcon
+                  icon={faAngleLeft}
+                  className={styles.buttonPrevious}
+                />
+              </button>
+              <button className={`swiper-button-next ${styles.swiperButton}`}>
+                <FontAwesomeIcon
+                  icon={faAngleRight}
+                  className={styles.buttonNext}
+                />
+              </button>
+
               <div className={styles.dialogDetails}>
                 <h3 className={styles.dialogTitle}>{selectedProject.Title}</h3>
                 <p className={styles.dialogDescription}>
