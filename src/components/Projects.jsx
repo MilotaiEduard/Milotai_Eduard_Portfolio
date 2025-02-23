@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import Navbar from "./Navbar";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { motion } from "framer-motion";
@@ -26,6 +25,7 @@ import {
   faExternalLinkAlt,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./Navbar";
 import styles from "./Projects.module.css";
 
 const technologyIcons = {
