@@ -195,39 +195,42 @@ function Projects() {
                 &times;
               </button>
 
-              {/* Swiper cu butoane de navigare */}
-              <Swiper
-                spaceBetween={10}
-                slidesPerView={1}
-                navigation={{
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
-                }}
-                modules={[Navigation]}
-              >
-                {selectedProject.Img.map((img, index) => (
-                  <SwiperSlide key={index}>
-                    <img
-                      src={img}
-                      alt={`Slide ${index}`}
-                      className={styles.dialogImage}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              {/* Container pentru imagine și butoane */}
+              <div className={styles.dialogImageContainer}>
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  navigation={{
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                  }}
+                  modules={[Navigation]}
+                >
+                  {selectedProject.Img.map((img, index) => (
+                    <SwiperSlide key={index}>
+                      <img
+                        src={img}
+                        alt={`Slide ${index}`}
+                        className={styles.dialogImage}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
-              <button className={`swiper-button-prev ${styles.swiperButton}`}>
-                <FontAwesomeIcon
-                  icon={faAngleLeft}
-                  className={styles.buttonPrevious}
-                />
-              </button>
-              <button className={`swiper-button-next ${styles.swiperButton}`}>
-                <FontAwesomeIcon
-                  icon={faAngleRight}
-                  className={styles.buttonNext}
-                />
-              </button>
+                {/* Butoane de navigare poziționate corect */}
+                <button className={`swiper-button-prev ${styles.swiperButton}`}>
+                  <FontAwesomeIcon
+                    icon={faAngleLeft}
+                    className={styles.buttonPrevious}
+                  />
+                </button>
+                <button className={`swiper-button-next ${styles.swiperButton}`}>
+                  <FontAwesomeIcon
+                    icon={faAngleRight}
+                    className={styles.buttonNext}
+                  />
+                </button>
+              </div>
 
               <div className={styles.dialogDetails}>
                 <h3 className={styles.dialogTitle}>{selectedProject.Title}</h3>

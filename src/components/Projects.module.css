@@ -262,6 +262,14 @@ body {
   position: relative;
 }
 
+.dialogImageContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dialogImage {
   width: 100%;
   height: 400px;
@@ -318,8 +326,7 @@ body {
 .swiperButton {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  background-color: #1e90ff;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
   font-size: 12px;
@@ -336,15 +343,15 @@ body {
 }
 
 .swiperButton:hover {
-  background-color: #005f9e;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 :global(.swiper-button-prev) {
-  left: 20px;
+  left: 0px;
 }
 
 :global(.swiper-button-next) {
-  right: 20px;
+  right: 0px;
 }
 
 @media (max-width: 1024px) {
