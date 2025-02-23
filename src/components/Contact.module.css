@@ -1,0 +1,84 @@
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background-color: #060b18;
+}
+
+.container {
+  background-color: #060b18;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 150px;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, #1e90ff, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 30%;
+  margin-top: 45px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #4b5563;
+  border-radius: 10px;
+  background-color: #1e293b;
+  color: white;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.textarea {
+  height: 120px;
+  resize: none;
+}
+
+.button {
+  background: linear-gradient(90deg, #1e90ff, #00bfff);
+  border: none;
+  margin-top: 30px;
+  padding: 20px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #00bfff, #1e90ff);
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.success {
+  color: #10b981;
+  font-size: 0.9rem;
+  text-align: center;
+}
