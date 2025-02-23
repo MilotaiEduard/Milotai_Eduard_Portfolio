@@ -389,3 +389,43 @@ body {
     justify-items: center;
   }
 }
+
+@media (max-width: 425px) {
+  .title {
+    font-size: 1.8rem;
+    padding-top: 125px;
+    margin-bottom: 25px;
+  }
+
+  .projectCard {
+    width: 375px;
+  }
+
+  .dialogImage {
+    height: 200px;
+  }
+}
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .projectCard {
+    width: 340px;
+  }
+
+  .dialogImage {
+    height: 200px;
+  }
+}
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .projectCard {
+    width: 285px;
+  }
+}
