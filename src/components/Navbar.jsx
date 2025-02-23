@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,6 +12,7 @@ import styles from "./Navbar.module.css";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const menuRef = useRef(null);
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -27,16 +28,27 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
+      setScrolling(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        menuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -134,56 +146,60 @@ function Navbar() {
           </Box>
         </Toolbar>
 
-        <Box
-          sx={{
-            position: "fixed",
-            top: 0,
-            right: menuOpen ? 0 : "-100%",
-            width: "70%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.9)",
-            display: "flex",
-            flexDirection: "column",
-            padding: "20px",
-            transition: "right 0.3s ease-in-out",
-            zIndex: 1000,
-            color: "white",
-          }}
-        >
-          <IconButton
-            onClick={handleClose}
+        {/* Meniu mobil */}
+        {menuOpen && (
+          <Box
+            ref={menuRef}
             sx={{
-              alignSelf: "flex-end",
+              position: "fixed",
+              top: 0,
+              right: 0,
+              width: "70%",
+              height: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
+              display: "flex",
+              flexDirection: "column",
+              padding: "20px",
+              transition: "right 0.3s ease-in-out",
+              zIndex: 1000,
               color: "white",
-              marginBottom: "20px",
-              marginTop: "7px",
             }}
           >
-            <CloseIcon />
-          </IconButton>
+            <IconButton
+              onClick={handleClose}
+              sx={{
+                alignSelf: "flex-end",
+                color: "white",
+                marginBottom: "20px",
+                marginTop: "7px",
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
 
-          {menuItems.map((item, index) => {
-            const itemPath = `/${
-              item.toLowerCase() === "home" ? "" : item.toLowerCase()
-            }`;
-            const isActive = location.pathname === itemPath;
+            {menuItems.map((item, index) => {
+              const itemPath = `/${
+                item.toLowerCase() === "home" ? "" : item.toLowerCase()
+              }`;
+              const isActive = location.pathname === itemPath;
 
-            return (
-              <MenuItem key={index} onClick={handleClose}>
-                <Link
-                  to={itemPath}
-                  style={{
-                    color: isActive ? "#1e90ff" : "white",
-                    textDecoration: "none",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  {item}
-                </Link>
-              </MenuItem>
-            );
-          })}
-        </Box>
+              return (
+                <MenuItem key={index} onClick={handleClose}>
+                  <Link
+                    to={itemPath}
+                    style={{
+                      color: isActive ? "#1e90ff" : "white",
+                      textDecoration: "none",
+                      fontSize: "1.2rem",
+                    }}
+                  >
+                    {item}
+                  </Link>
+                </MenuItem>
+              );
+            })}
+          </Box>
+        )}
       </AppBar>
     </Box>
   );
