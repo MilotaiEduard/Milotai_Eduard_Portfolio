@@ -115,6 +115,9 @@ function Projects() {
                 {project.isRealClient && (
                   <span className={styles.realClientTag}>Client Project</span>
                 )}
+                {project.GameJam && (
+                  <span className={styles.gameJamTag}>Game Jam</span>
+                )}
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.projectTitle}>{project.Title}</h3>
