@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,6 +11,7 @@ import styles from "./Navbar.module.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -24,13 +25,27 @@ function Navbar() {
 
   const menuItems = ["Home", "About", "Projects", "Contact"];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
         sx={{
-          backgroundColor: "transparent",
+          backgroundColor: scrolling ? "rgba(6,11,24, 0.9)" : "transparent",
           boxShadow: "none",
+          transition: "background-color 0.3s ease-in-out",
           padding: "20px",
           zIndex: "1000",
         }}
