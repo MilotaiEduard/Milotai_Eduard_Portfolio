@@ -27,7 +27,7 @@ function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        position="absolute"
+        position="fixed"
         sx={{
           backgroundColor: "transparent",
           boxShadow: "none",
