@@ -2,7 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPaperPlane,
+  faUser,
+  faEnvelope,
+  faCommentDots,
+} from "@fortawesome/free-solid-svg-icons";
 import Navbar from "./Navbar";
 import styles from "./Contact.module.css";
 
@@ -56,32 +61,46 @@ function Contact() {
         </motion.h1>
 
         <form onSubmit={handleSubmit} className={styles.form}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name *"
-            value={formData.name}
-            onChange={handleChange}
-            className={styles.input}
-            autoComplete="off"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email *"
-            value={formData.email}
-            onChange={handleChange}
-            className={styles.input}
-            autoComplete="off"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message *"
-            value={formData.message}
-            onChange={handleChange}
-            className={styles.textarea}
-            autoComplete="off"
-          ></textarea>
+          <div className={styles.inputWrapper}>
+            <FontAwesomeIcon icon={faUser} className={styles.icon} />
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name *"
+              value={formData.name}
+              onChange={handleChange}
+              className={styles.input}
+              autoComplete="off"
+            />
+          </div>
+
+          <div className={styles.inputWrapper}>
+            <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email *"
+              value={formData.email}
+              onChange={handleChange}
+              className={styles.input}
+              autoComplete="off"
+            />
+          </div>
+
+          <div className={styles.textareaWrapper}>
+            <FontAwesomeIcon
+              icon={faCommentDots}
+              className={styles.textareaIcon}
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message *"
+              value={formData.message}
+              onChange={handleChange}
+              className={styles.textarea}
+              autoComplete="off"
+            ></textarea>
+          </div>
 
           {error && <p className={styles.error}>{error}</p>}
           {isSent && (
@@ -89,7 +108,8 @@ function Contact() {
           )}
 
           <button type="submit" className={styles.button}>
-            <FontAwesomeIcon icon={faPaperPlane} /> Send Message
+            <FontAwesomeIcon icon={faPaperPlane} className={styles.planeIcon} />
+            Send Message
           </button>
         </form>
       </div>
