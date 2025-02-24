@@ -66,7 +66,7 @@ function Contact() {
             <input
               type="text"
               name="name"
-              placeholder="Your Name *"
+              placeholder="Name *"
               value={formData.name}
               onChange={handleChange}
               className={styles.input}
@@ -79,7 +79,7 @@ function Contact() {
             <input
               type="email"
               name="email"
-              placeholder="Your Email *"
+              placeholder="Email *"
               value={formData.email}
               onChange={handleChange}
               className={styles.input}
@@ -94,7 +94,7 @@ function Contact() {
             />
             <textarea
               name="message"
-              placeholder="Your Message *"
+              placeholder="Message *"
               value={formData.message}
               onChange={handleChange}
               className={styles.textarea}
