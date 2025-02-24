@@ -60,7 +60,13 @@ function Contact() {
           Have an Idea? Let’s Make It Real
         </motion.h1>
 
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <motion.form
+          onSubmit={handleSubmit}
+          className={styles.form}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className={styles.inputWrapper}>
             <FontAwesomeIcon icon={faUser} className={styles.icon} />
             <input
@@ -111,7 +117,7 @@ function Contact() {
             <FontAwesomeIcon icon={faPaperPlane} className={styles.planeIcon} />
             Send Message
           </button>
-        </form>
+        </motion.form>
       </div>
     </div>
   );
