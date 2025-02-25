@@ -117,6 +117,8 @@ function Contact() {
             <FontAwesomeIcon icon={faPaperPlane} className={styles.planeIcon} />
             Send Message
           </button>
+
+          <hr className={styles.separator} />
         </motion.form>
       </div>
     </div>

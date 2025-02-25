@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 750px;
+  width: 650px;
   margin-top: 45px;
   background-color: #1e293b;
   padding: 30px;
@@ -101,6 +101,13 @@ body {
 
 .button:hover {
   background: linear-gradient(90deg, #00bfff, #1e90ff);
+}
+
+.separator {
+  border: none;
+  height: 1px;
+  background-color: #b6b6b6;
+  transform: scaleY(0.5);
 }
 
 .error {
