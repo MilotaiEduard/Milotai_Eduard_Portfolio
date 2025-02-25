@@ -57,7 +57,7 @@ function Contact() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          Have an Idea? Let’s Make It Real
+          Let’s Build Something Great Together
         </motion.h1>
 
         <motion.form
