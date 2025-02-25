@@ -119,6 +119,9 @@ function Contact() {
           </button>
 
           <hr className={styles.separator} />
+          <h3 className={styles.contactInfo}>
+            <span className={styles.line}></span>Let’s Connect
+          </h3>
         </motion.form>
       </div>
     </div>

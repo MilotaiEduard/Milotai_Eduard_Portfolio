@@ -110,6 +110,22 @@ body {
   transform: scaleY(0.5);
 }
 
+.contactInfo {
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.line {
+  width: 40px;
+  height: 5px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #1e90ff, #00bfff);
+  margin-right: 15px;
+}
+
 .error {
   color: #ff4d4d;
   font-size: 0.9rem;
