@@ -7,6 +7,8 @@ import {
   faUser,
   faEnvelope,
   faCommentDots,
+  faLocationDot,
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "./Navbar";
 import styles from "./Contact.module.css";
@@ -122,6 +124,27 @@ function Contact() {
           <h3 className={styles.contactInfo}>
             <span className={styles.line}></span>Let’s Connect
           </h3>
+
+          <div className={styles.contactItem}>
+            <FontAwesomeIcon
+              icon={faLocationDot}
+              className={styles.contactIcon}
+            />
+            <span>Bucharest, Romania</span>
+          </div>
+          <div className={styles.contactItem}>
+            <FontAwesomeIcon icon={faPhone} className={styles.contactIcon} />
+            <span>0763386962</span>
+          </div>
+          <div className={styles.contactItem}>
+            <FontAwesomeIcon icon={faEnvelope} className={styles.contactIcon} />
+            <a
+              href="mailto:eduard_milotai@yahoo.com"
+              className={styles.contactLink}
+            >
+              <span>eduard_milotai@yahoo.com</span>
+            </a>
+          </div>
         </motion.form>
       </div>
     </div>

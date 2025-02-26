@@ -87,12 +87,17 @@ body {
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   background: linear-gradient(90deg, #1e90ff, #00bfff);
   border: none;
   margin-top: 15px;
-  padding: 20px;
+  padding: 15px;
   color: white;
   font-size: 1rem;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
@@ -101,6 +106,10 @@ body {
 
 .button:hover {
   background: linear-gradient(90deg, #00bfff, #1e90ff);
+}
+
+.planeIcon {
+  font-size: 1.2rem;
 }
 
 .separator {
@@ -116,6 +125,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .line {
@@ -124,6 +134,31 @@ body {
   border-radius: 10px;
   background: linear-gradient(90deg, #1e90ff, #00bfff);
   margin-right: 15px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contactIcon {
+  color: #1e90ff;
+  font-size: 1.2rem;
+}
+
+.contactLink {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: #1e90ff;
+  text-decoration: underline;
 }
 
 .error {
