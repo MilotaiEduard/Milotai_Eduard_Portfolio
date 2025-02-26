@@ -160,7 +160,7 @@ function About() {
                     className={styles.timelineDate}
                     style={{ color: "#808080" }}
                   >
-                    October 2024 - Present
+                    November 2024 - Present
                   </p>
                 </TimelineContent>
               </TimelineItem>
