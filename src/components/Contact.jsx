@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import {
   faPaperPlane,
   faUser,
@@ -143,6 +144,25 @@ function Contact() {
               className={styles.contactLink}
             >
               <span>eduard_milotai@yahoo.com</span>
+            </a>
+          </div>
+
+          <div className={styles.socialItems}>
+            <a
+              href="https://github.com/MilotaiEduard"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/eduard-milotai-25b048296/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
             </a>
           </div>
         </motion.form>
