@@ -157,7 +157,7 @@ function Home() {
             <FontAwesomeIcon icon={faGithub} />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/eduard-milotai-25b048296/"
+            href="https://www.linkedin.com/in/eduardmilotai/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialButton}
