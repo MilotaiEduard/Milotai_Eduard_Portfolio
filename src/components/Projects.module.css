@@ -400,6 +400,10 @@ body {
     font-size: 1.6rem;
   }
 
+  .cardsGrid {
+    padding: 10px;
+  }
+
   .projectCard {
     width: 340px;
   }
