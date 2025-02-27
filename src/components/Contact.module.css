@@ -187,3 +187,195 @@ body {
 .socialLink:hover {
   background-color: #1e90ff;
 }
+
+@media (max-width: 1440px) {
+  .form {
+    gap: 25px;
+    width: 650px;
+  }
+}
+
+@media (max-width: 800px) {
+  .title {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.3rem;
+  }
+
+  .form {
+    width: 600px;
+  }
+}
+
+@media (max-width: 739px) {
+  .title {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 678px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .form {
+    width: 550px;
+  }
+}
+
+@media (max-width: 648px) {
+  .title {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 618px) {
+  .title {
+    padding-top: 125px;
+    margin-bottom: 25px;
+  }
+
+  .form {
+    width: 500px;
+  }
+}
+
+@media (max-width: 590px) {
+  .form {
+    width: 475px;
+  }
+}
+
+@media (max-width: 560px) {
+  .form {
+    width: 450px;
+  }
+}
+
+@media (max-width: 530px) {
+  .form {
+    width: 425px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    width: 400px;
+  }
+}
+
+@media (max-width: 470px) {
+  .form {
+    width: 375px;
+  }
+}
+
+@media (max-width: 440px) {
+  .form {
+    width: 350px;
+  }
+}
+
+@media (max-width: 425px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .form {
+    width: 325px;
+  }
+}
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .form {
+    width: 300px;
+  }
+
+  .button {
+    font-size: 0.9rem;
+  }
+
+  .planeIcon {
+    font-size: 1.1rem;
+  }
+
+  .contactItem {
+    font-size: 0.9rem;
+  }
+
+  .contactIcon {
+    font-size: 1.1rem;
+  }
+
+  .contactLink {
+    font-size: 0.9rem;
+  }
+
+  .socialLink {
+    font-size: 1.6rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 350px) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .form {
+    width: 275px;
+  }
+
+  .input,
+  .textarea {
+    padding: 10px;
+    padding-left: 40px;
+  }
+
+  .textarea {
+    height: 100px;
+    resize: none;
+  }
+
+  .textareaIcon {
+    top: 15px;
+    font-size: 1rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+  }
+
+  .planeIcon {
+    font-size: 1.1rem;
+  }
+
+  .contactItem {
+    font-size: 0.8rem;
+  }
+
+  .contactIcon {
+    font-size: 1rem;
+  }
+
+  .contactLink {
+    font-size: 0.8rem;
+  }
+
+  .socialLink {
+    font-size: 1.4rem;
+    width: 40px;
+    height: 40px;
+  }
+}
