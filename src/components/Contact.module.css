@@ -187,15 +187,3 @@ body {
 .socialLink:hover {
   background-color: #1e90ff;
 }
-
-.error {
-  color: #ff4d4d;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.success {
-  color: #10b981;
-  font-size: 0.9rem;
-  text-align: center;
-}
