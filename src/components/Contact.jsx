@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -20,8 +21,6 @@ function Contact() {
     email: "",
     message: "",
   });
-  const [isSent, setIsSent] = useState(false);
-  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,10 +28,16 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
 
     if (!formData.name || !formData.email || !formData.message) {
-      setError("All fields are required.");
+      Swal.fire({
+        title: "Error",
+        text: "All fields are required!",
+        icon: "error",
+        background: "#1e293b",
+        color: "#fff",
+        confirmButtonColor: "#1e90ff",
+      });
       return;
     }
 
@@ -44,10 +49,27 @@ function Contact() {
         "ADOTUcWKAKCnz-I0F"
       )
       .then(() => {
-        setIsSent(true);
+        Swal.fire({
+          title: "Success",
+          text: "Message sent successfully!",
+          icon: "success",
+          background: "#060b18",
+          color: "#fff",
+          confirmButtonColor: "#1e90ff",
+        });
+
         setFormData({ name: "", email: "", message: "" });
       })
-      .catch(() => setError("Something went wrong. Try again later."));
+      .catch(() =>
+        Swal.fire({
+          title: "Error",
+          text: "Something went wrong. Try again later.",
+          icon: "error",
+          background: "#060b18",
+          color: "#fff",
+          confirmButtonColor: "#1e90ff",
+        })
+      );
   };
 
   return (
@@ -110,11 +132,6 @@ function Contact() {
               autoComplete="off"
             ></textarea>
           </div>
-
-          {error && <p className={styles.error}>{error}</p>}
-          {isSent && (
-            <p className={styles.success}>Message sent successfully!</p>
-          )}
 
           <button type="submit" className={styles.button}>
             <FontAwesomeIcon icon={faPaperPlane} className={styles.planeIcon} />
