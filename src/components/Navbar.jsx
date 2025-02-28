@@ -55,6 +55,8 @@ function Navbar() {
       <AppBar
         position="fixed"
         sx={{
+          width: "100vw",
+          left: 0,
           backgroundColor: scrolling ? "rgba(6,11,24, 0.9)" : "transparent",
           boxShadow: "none",
           transition: "background-color 0.3s ease-in-out",
