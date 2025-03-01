@@ -400,10 +400,6 @@ body {
     padding: 10px;
   }
 
-  .title {
-    font-size: 1.6rem;
-  }
-
   .projectImage {
     height: 175px;
   }
@@ -469,6 +465,6 @@ body {
 
 @media (max-width: 360px) {
   .title {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
