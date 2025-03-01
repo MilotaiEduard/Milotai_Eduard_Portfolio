@@ -404,6 +404,41 @@ body {
     font-size: 1.6rem;
   }
 
+  .projectImage {
+    height: 175px;
+  }
+
+  .projectTitle {
+    font-size: 1.3rem;
+  }
+
+  .projectDescription {
+    font-size: 0.8rem;
+  }
+
+  .projectDescription span {
+    font-size: 0.7rem;
+    color: #aaa;
+  }
+
+  .techIcon {
+    font-size: 0.8rem;
+  }
+
+  .techItem {
+    font-size: 0.6rem;
+  }
+
+  .actionButton {
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .detailsButton {
+    font-size: 0.8rem;
+  }
+
   .cardsGrid {
     padding: 10px;
   }
