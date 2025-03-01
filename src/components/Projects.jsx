@@ -157,7 +157,7 @@ function Projects() {
                         <FontAwesomeIcon icon={faExternalLinkAlt} />
                       </a>
                     ) : (
-                      <p className={styles.noDemo}>Demo Unavailable</p>
+                      <p className={styles.noDemo}>No Demo</p>
                     )}
                     {project.GitHub ? (
                       <a
