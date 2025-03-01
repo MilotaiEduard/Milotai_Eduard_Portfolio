@@ -409,24 +409,24 @@ body {
   }
 
   .projectTitle {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .projectDescription {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .projectDescription span {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: #aaa;
   }
 
   .techIcon {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .techItem {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .actionButton {
@@ -435,8 +435,13 @@ body {
     height: 36px;
   }
 
+  .noDemo,
+  .noGitHub {
+    font-size: 0.9rem;
+  }
+
   .detailsButton {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .cardsGrid {
