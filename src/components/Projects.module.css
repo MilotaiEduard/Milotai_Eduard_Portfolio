@@ -451,6 +451,20 @@ body {
   .projectCard {
     width: 95%;
   }
+
+  /* Dialog styles */
+  .dialogTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .dialogDescription {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #b6b6b6;
+  }
 }
 
 @media (max-width: 360px) {
