@@ -379,7 +379,7 @@ body {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 450px) {
   .title {
     font-size: 1.8rem;
     padding-top: 125px;
@@ -396,6 +396,10 @@ body {
 }
 
 @media (max-width: 400px) {
+  .container {
+    padding: 10px;
+  }
+
   .title {
     font-size: 1.6rem;
   }
@@ -405,20 +409,12 @@ body {
   }
 
   .projectCard {
-    width: 340px;
-  }
-
-  .dialogImage {
-    height: 200px;
+    width: 95%;
   }
 }
 
 @media (max-width: 360px) {
   .title {
     font-size: 1.4rem;
-  }
-
-  .projectCard {
-    width: 285px;
   }
 }

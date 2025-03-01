@@ -285,9 +285,7 @@ body {
   .form {
     width: 350px;
   }
-}
 
-@media (max-width: 425px) {
   .title {
     font-size: 1.8rem;
   }
