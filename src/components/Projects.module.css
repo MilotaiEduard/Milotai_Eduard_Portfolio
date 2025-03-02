@@ -426,7 +426,7 @@ body {
   }
 
   .actionButton {
-    font-size: 18px;
+    font-size: 20px;
     width: 36px;
     height: 36px;
   }
@@ -446,6 +446,14 @@ body {
 
   .projectCard {
     width: 95%;
+  }
+
+  .realClientTag {
+    font-size: 0.7rem;
+  }
+
+  .gameJamTag {
+    font-size: 0.7rem;
   }
 
   /* Dialog styles */
