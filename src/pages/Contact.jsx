@@ -12,7 +12,7 @@ import {
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import styles from "./Contact.module.css";
 
 function Contact() {

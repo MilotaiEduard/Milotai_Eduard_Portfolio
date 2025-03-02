@@ -24,7 +24,7 @@ import {
   TimelineDot,
 } from "@mui/lab";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import styles from "./About.module.css";
 
 const skills = [

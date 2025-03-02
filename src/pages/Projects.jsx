@@ -25,7 +25,7 @@ import {
   faExternalLinkAlt,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import styles from "./Projects.module.css";
 
 const technologyIcons = {
