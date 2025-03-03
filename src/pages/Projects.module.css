@@ -399,6 +399,10 @@ body {
 }
 
 @media (max-width: 400px) {
+  .title {
+    margin-bottom: 35px;
+  }
+
   .container {
     padding: 10px;
   }
