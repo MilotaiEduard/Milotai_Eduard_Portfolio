@@ -192,46 +192,50 @@ function Navbar() {
               const isActive = location.pathname === item.path;
 
               return (
-                <MenuItem
+                <Link
                   key={index}
+                  to={item.path}
                   onClick={handleClose}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                    padding: "15px",
-                    borderRadius: "8px",
-                    transition: "background 0.3s ease-in-out",
-                    backgroundColor: isActive
-                      ? "rgba(30, 144, 255, 0.3)"
-                      : "transparent",
-                    "&:hover": {
-                      background: "rgba(30, 144, 255, 0.5)",
-                    },
+                  style={{
+                    textDecoration: "none",
+                    width: "100%",
                   }}
                 >
-                  <FontAwesomeIcon
-                    icon={item.icon}
-                    style={{
-                      color: isActive ? "#1e90ff" : "white",
-                      fontSize: "1.3rem",
-                      width: "28px",
-                      textAlign: "center",
-                    }}
-                  />
-                  <Link
-                    to={item.path}
-                    style={{
-                      color: isActive ? "#1e90ff" : "white",
-                      textDecoration: "none",
-                      fontSize: "1.2rem",
+                  <MenuItem
+                    sx={{
                       display: "flex",
                       alignItems: "center",
+                      gap: 2,
+                      padding: "15px",
+                      borderRadius: "8px",
+                      transition: "background 0.3s ease-in-out",
+                      backgroundColor: isActive
+                        ? "rgba(30, 144, 255, 0.3)"
+                        : "transparent",
+                      "&:hover": {
+                        background: "rgba(30, 144, 255, 0.5)",
+                      },
                     }}
                   >
-                    {item.name}
-                  </Link>
-                </MenuItem>
+                    <FontAwesomeIcon
+                      icon={item.icon}
+                      style={{
+                        color: isActive ? "#1e90ff" : "white",
+                        fontSize: "1.3rem",
+                        width: "28px",
+                        textAlign: "center",
+                      }}
+                    />
+                    <span
+                      style={{
+                        color: isActive ? "#1e90ff" : "white",
+                        fontSize: "1.2rem",
+                      }}
+                    >
+                      {item.name}
+                    </span>
+                  </MenuItem>
+                </Link>
               );
             })}
           </Box>
