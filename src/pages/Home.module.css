@@ -238,7 +238,6 @@ body {
 @media (max-width: 480px) {
   .content {
     padding: 0 25px;
-    gap: 100px;
   }
 
   .title {
