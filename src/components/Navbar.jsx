@@ -7,6 +7,13 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faUser,
+  faBriefcase,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
@@ -24,7 +31,12 @@ function Navbar() {
 
   const location = useLocation();
 
-  const menuItems = ["Home", "About", "Projects", "Contact"];
+  const menuItems = [
+    { name: "Home", path: "/", icon: faHome },
+    { name: "About", path: "/about", icon: faUser },
+    { name: "Projects", path: "/projects", icon: faBriefcase },
+    { name: "Contact", path: "/contact", icon: faEnvelope },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,6 +101,7 @@ function Navbar() {
             </span>
           </Link>
 
+          {/* Desktop Menu */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -96,9 +109,7 @@ function Navbar() {
             }}
           >
             {menuItems.map((item, index) => {
-              const itemPath = `/${
-                item.toLowerCase() === "home" ? "" : item.toLowerCase()
-              }`;
+              const itemPath = item.path;
               const isActive = location.pathname === itemPath;
 
               return (
@@ -125,12 +136,13 @@ function Navbar() {
                     (e.target.style.borderBottom = "2px solid transparent")
                   }
                 >
-                  {item}
+                  {item.name}
                 </Link>
               );
             })}
           </Box>
 
+          {/* Mobile Menu Button */}
           <Box sx={{ display: { xs: "block", md: "none" } }}>
             <IconButton
               size="large"
@@ -148,7 +160,7 @@ function Navbar() {
           </Box>
         </Toolbar>
 
-        {/* Meniu mobil */}
+        {/* Mobile Menu */}
         {menuOpen && (
           <Box
             ref={menuRef}
@@ -180,22 +192,39 @@ function Navbar() {
             </IconButton>
 
             {menuItems.map((item, index) => {
-              const itemPath = `/${
-                item.toLowerCase() === "home" ? "" : item.toLowerCase()
-              }`;
-              const isActive = location.pathname === itemPath;
+              const isActive = location.pathname === item.path;
 
               return (
-                <MenuItem key={index} onClick={handleClose}>
+                <MenuItem
+                  key={index}
+                  onClick={handleClose}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 2,
+                    padding: "12px",
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    style={{
+                      color: isActive ? "#1e90ff" : "white",
+                      fontSize: "1.2rem",
+                      width: "24px",
+                      textAlign: "center",
+                    }}
+                  />
                   <Link
-                    to={itemPath}
+                    to={item.path}
                     style={{
                       color: isActive ? "#1e90ff" : "white",
                       textDecoration: "none",
                       fontSize: "1.2rem",
+                      display: "flex",
+                      alignItems: "center",
                     }}
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 </MenuItem>
               );
