@@ -231,7 +231,7 @@ function About() {
                     className={styles.timelineDate}
                     style={{ color: "#808080" }}
                   >
-                    2024 - 2026
+                    2024 - Present
                   </p>
                 </TimelineContent>
               </TimelineItem>
