@@ -38,7 +38,7 @@ function Home() {
           options={{
             particles: {
               number: {
-                value: 100,
+                value: 150,
                 density: {
                   enable: true,
                   area: 800,
