@@ -214,7 +214,7 @@ function Navbar() {
                     icon={item.icon}
                     style={{
                       color: isActive ? "#1e90ff" : "white",
-                      fontSize: "1.2rem",
+                      fontSize: "1.3rem",
                       width: "28px",
                       textAlign: "center",
                     }}
@@ -224,7 +224,7 @@ function Navbar() {
                     style={{
                       color: isActive ? "#1e90ff" : "white",
                       textDecoration: "none",
-                      fontSize: "1.1rem",
+                      fontSize: "1.2rem",
                       display: "flex",
                       alignItems: "center",
                     }}
