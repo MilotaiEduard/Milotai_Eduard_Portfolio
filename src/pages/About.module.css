@@ -375,8 +375,8 @@ hr {
   }
 
   .sectionLeft img {
-    height: 100px;
-    width: 100px;
+    height: 85px;
+    width: 85px;
   }
 
   .sectionLeft h2 {
@@ -384,6 +384,10 @@ hr {
   }
 
   .sectionLeft h4 {
+    font-size: 1rem;
+  }
+
+  .socialButton {
     font-size: 1rem;
   }
 
