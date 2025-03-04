@@ -101,7 +101,7 @@ function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Menu */}
+          {/* Meniu Desktop */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -109,13 +109,12 @@ function Navbar() {
             }}
           >
             {menuItems.map((item, index) => {
-              const itemPath = item.path;
-              const isActive = location.pathname === itemPath;
+              const isActive = location.pathname === item.path;
 
               return (
                 <Link
                   key={index}
-                  to={itemPath}
+                  to={item.path}
                   style={{
                     color: isActive ? "#1e90ff" : "white",
                     textDecoration: "none",
@@ -142,17 +141,14 @@ function Navbar() {
             })}
           </Box>
 
-          {/* Mobile Menu Button */}
+          {/* Buton Meniu Mobil */}
           <Box sx={{ display: { xs: "block", md: "none" } }}>
             <IconButton
               size="large"
               edge="end"
               color="inherit"
               aria-label="menu"
-              sx={{
-                marginRight: "-5px",
-                padding: "5px",
-              }}
+              sx={{ padding: "5px" }}
               onClick={handleMenuToggle}
             >
               {menuOpen ? <CloseIcon /> : <MenuIcon />}
@@ -160,7 +156,7 @@ function Navbar() {
           </Box>
         </Toolbar>
 
-        {/* Mobile Menu */}
+        {/* Meniu Mobil */}
         {menuOpen && (
           <Box
             ref={menuRef}
@@ -168,9 +164,10 @@ function Navbar() {
               position: "fixed",
               top: 0,
               right: 0,
-              width: "70%",
+              width: "75%",
               height: "100%",
-              backgroundColor: "rgba(0, 0, 0, 0.9)",
+              background: "rgba(30, 41, 59, 0.95)",
+              backdropFilter: "blur(8px)",
               display: "flex",
               flexDirection: "column",
               padding: "20px",
@@ -202,15 +199,23 @@ function Navbar() {
                     display: "flex",
                     alignItems: "center",
                     gap: 2,
-                    padding: "12px",
+                    padding: "15px",
+                    borderRadius: "8px",
+                    transition: "background 0.3s ease-in-out",
+                    backgroundColor: isActive
+                      ? "rgba(30, 144, 255, 0.3)"
+                      : "transparent",
+                    "&:hover": {
+                      background: "rgba(30, 144, 255, 0.5)",
+                    },
                   }}
                 >
                   <FontAwesomeIcon
                     icon={item.icon}
                     style={{
                       color: isActive ? "#1e90ff" : "white",
-                      fontSize: "1.2rem",
-                      width: "24px",
+                      fontSize: "1.4rem",
+                      width: "28px",
                       textAlign: "center",
                     }}
                   />
@@ -219,7 +224,7 @@ function Navbar() {
                     style={{
                       color: isActive ? "#1e90ff" : "white",
                       textDecoration: "none",
-                      fontSize: "1.2rem",
+                      fontSize: "1.3rem",
                       display: "flex",
                       alignItems: "center",
                     }}
