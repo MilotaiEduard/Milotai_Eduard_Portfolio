@@ -1,8 +1,32 @@
-# React + Vite
+# 🚀 Eduard Milotai - Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal **developer portfolio**! This project serves as a showcase of my skills, experience, and the projects I’ve worked on.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**: [eduardmilotai.vercel.app](https://eduardmilotai.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🖼️ Homepage Preview
+
+![Homepage Screenshot](src/assets/home-page.JPG)
+
+## ✨ Features
+
+✔️ **Modern & Responsive Design** – Built with Material UI for a sleek and professional look.  
+✔️ **Dynamic & Interactive** – Developed using React for a smooth user experience.  
+✔️ **Project Showcase** – A collection of my best work with descriptions and links.  
+✔️ **Firebase Integration** – Using Firebase for database integration.  
+✔️ **Performance Optimized** – Fast, responsive, and mobile-friendly.
+
+## 🛠️ Tech Stack
+
+- ⚛ **React** – Component-based architecture for a seamless UI.
+- 🎨 **Material UI** – Beautiful, responsive, and accessible UI components.
+- 🔥 **Firebase** – Database integration.
+- 🚀 **Vercel** – Fast and reliable deployment platform.
+
+## 📩 Contact
+
+If you’d like to connect, feel free to reach out:
+
+- **Portfolio:** [eduardmilotai.vercel.app](https://eduardmilotai.vercel.app)
+- **GitHub:** [github.com/MilotaiEduard](https://github.com/MilotaiEduard)
+- **LinkedIn:** [linkedin.com/in/eduardmilotai](https://www.linkedin.com/in/eduardmilotai/)
