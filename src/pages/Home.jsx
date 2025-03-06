@@ -115,7 +115,7 @@ function Home() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
             >
-              <a href="/public/CV___Milotai_Eduard_Nicușor.pdf" download>
+              <a href="/CV___Milotai_Eduard_Nicușor.pdf" download>
                 <button className={styles.cvButton}>
                   <FontAwesomeIcon icon={faFilePdf} /> <b>Download CV</b>
                 </button>
